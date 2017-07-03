@@ -12,14 +12,14 @@ public class Operation {
 	//初始化 隨機生成num vs num 隨機名字不重複的角色
 	public static Character[] initial(int num) throws IOException{
 		Character[] hero = new Character[num*2];
-		String [] prefixDark = IOmethod.fileToArray(".\\prefixDark.txt");
-		String [] prefixLight = IOmethod.fileToArray(".\\prefixLight.txt");
-		String [] suffix = IOmethod.fileToArray(".\\suffixName.txt");
+		String [] prefixDark = IOmethod.fileToArray(HeroBattle.prefixDarkPath);
+		String [] prefixLight = IOmethod.fileToArray(HeroBattle.prefixLightPath);
+		String [] suffix = IOmethod.fileToArray(HeroBattle.suffixNamePath);
 
 		for(int i = 0, n = num; i<n; i++)
-			hero[i] = new CharLight(IOmethod.ranName(prefixLight, suffix, hero, i));
+			hero[i] = new CharLight(IOmethod.ranName(prefixLight, suffix));
 		for(int i = num, n = num*2; i<n; i++)
-			hero[i] = new CharDark(IOmethod.ranName(prefixDark, suffix, hero, i));
+			hero[i] = new CharDark(IOmethod.ranName(prefixDark, suffix));
 		return hero;
 	}
 	//Stage Impact

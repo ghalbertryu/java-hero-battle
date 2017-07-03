@@ -6,11 +6,15 @@ import dgx.albert.io.IOmethod;
 import dgx.albert.stage.Stage;
 
 public class HeroBattle {
-	//print and write tool
+	//print and write tool & initial parameter
 	public static String formatedStringTmp =""; 
-	public static FileWriter fw = IOmethod.createFile(".\\process.txt");
-	//setting initial
+	public static final String processPath = ".\\process.txt";
+	public static final String prefixDarkPath = ".\\prefixDark.txt";
+	public static final String prefixLightPath = ".\\prefixLight.txt";
+	public static final String suffixNamePath = ".\\suffixName.txt";
 	final static int numOfGroup = 10;
+	//setting
+	public static FileWriter fw = IOmethod.createFile(processPath);
 	
 	public static void main(String[] args) throws IOException {
 		//生成隊伍 n vs n

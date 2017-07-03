@@ -1,10 +1,13 @@
 package dgx.albert.character;
 
+import java.util.*;
+
 import dgx.albert.herobattle.HeroBattle;
 import dgx.albert.io.IOmethod;
 
 public class Character {
 	public static int charCount=0;
+	public static HashSet<String> nameSet = new HashSet<String>();
 	//Attributes
 	public int index;
 	private int hp = 100;

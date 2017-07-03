@@ -1,7 +1,6 @@
 package dgx.albert.io;
 
 import java.io.*;
-
 import dgx.albert.character.Character;
 import dgx.albert.herobattle.HeroBattle;
 
@@ -58,9 +57,21 @@ public class IOmethod {
 		String[] array = tmp.split(",\\s*");
 		return array;
 	}
-
 	//兩個字串陣列隨機組合一組新的全名
-	public static String ranName(String[] prefix, String[] suffix, Character[] hero, int n){
+	public static String ranName(String[] prefix, String[] suffix){
+		String fullName="";
+		fullName = fullName.concat(prefix[(int)(Math.random()*prefix.length)]);
+		fullName = fullName.concat(suffix[(int)(Math.random()*suffix.length)]);
+		
+		//check repeat
+		if(!Character.nameSet.add(fullName)){
+			return ranName(prefix, suffix);
+		}
+		return fullName;
+	}
+	
+	//兩個字串陣列隨機組合一組新的全名
+/*	public static String ranName(String[] prefix, String[] suffix, Character[] hero, int n){
 		String fullName="";
 		fullName = fullName.concat(prefix[(int)(Math.random()*prefix.length)]);
 		fullName = fullName.concat(suffix[(int)(Math.random()*suffix.length)]);
@@ -72,6 +83,6 @@ public class IOmethod {
 			}
 		}
 		return fullName;	
-	}
+	}*/
 	
 }
