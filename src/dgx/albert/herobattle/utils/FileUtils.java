@@ -1,10 +1,10 @@
-package dgx.albert.io;
+package dgx.albert.herobattle.utils;
 
 import java.io.*;
-import dgx.albert.character.Character;
+import dgx.albert.herobattle.vo.Character;
 import dgx.albert.herobattle.HeroBattle;
 
-public class IOmethod {
+public class FileUtils {
 	//printFlie
 	public static void printFile(String string){
 		System.out.print(string);

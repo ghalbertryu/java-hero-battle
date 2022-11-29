@@ -1,9 +1,9 @@
-package dgx.albert.character;
+package dgx.albert.herobattle.vo;
 
 import java.util.*;
 
 import dgx.albert.herobattle.HeroBattle;
-import dgx.albert.io.IOmethod;
+import dgx.albert.herobattle.utils.FileUtils;
 
 public class Character {
 	public static int charCount=0;
@@ -49,15 +49,15 @@ public class Character {
 	//info
 	public void showChar(){
 		HeroBattle.formatedStringTmp = String.format("Group:%s %s:HP%d\r\n", group, name, hp);
-		IOmethod.printFile(HeroBattle.formatedStringTmp);
+		FileUtils.printFile(HeroBattle.formatedStringTmp);
 		
 		HeroBattle.formatedStringTmp = String.format("ATK=%d DEF=%d DEX=%d\r\n\r\n", atkInitial, defInitial, dexInitial);
-		IOmethod.printFile(HeroBattle.formatedStringTmp);
+		FileUtils.printFile(HeroBattle.formatedStringTmp);
 	}
 	
 	public void hpLeft(){
 		HeroBattle.formatedStringTmp = String.format("%s HP還剩%d\r\n\r\n", name, hp);
-		IOmethod.printFile(HeroBattle.formatedStringTmp);
+		FileUtils.printFile(HeroBattle.formatedStringTmp);
 	}
 	
 	public boolean getAlive(){
@@ -94,16 +94,16 @@ public class Character {
 		if(!enemy.getAlive()) return;
 		
 		HeroBattle.formatedStringTmp = String.format("%s對%s使出普通攻擊", name, enemy.name);
-		IOmethod.printFile(HeroBattle.formatedStringTmp);
+		FileUtils.printFile(HeroBattle.formatedStringTmp);
 		
 		int damage = atkAdjust -(int)((enemy.defAdjust) * (0.5* Math.random() + 0.5)); //atk - def*(0.5~1)
 		if(damage > 0){
 			HeroBattle.formatedStringTmp = String.format("造成%d點傷害\r\n", damage);
-			IOmethod.printFile(HeroBattle.formatedStringTmp);
+			FileUtils.printFile(HeroBattle.formatedStringTmp);
 			enemy.getHurt(damage);
 		}else{
 			HeroBattle.formatedStringTmp = String.format("卻被防禦了!\r\n\r\n");
-			IOmethod.printFile(HeroBattle.formatedStringTmp);
+			FileUtils.printFile(HeroBattle.formatedStringTmp);
 		}
 	}
 	
@@ -119,7 +119,7 @@ public class Character {
 	
 	private void getDie(){
 		HeroBattle.formatedStringTmp = String.format("%s陣亡了!\r\n\r\n", name);
-		IOmethod.printFile(HeroBattle.formatedStringTmp);
+		FileUtils.printFile(HeroBattle.formatedStringTmp);
 		alive = false;
 	}
 	

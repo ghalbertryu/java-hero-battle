@@ -1,9 +1,10 @@
 package dgx.albert.herobattle;
 import java.io.*;
 
-import dgx.albert.character.Character;
-import dgx.albert.io.IOmethod;
-import dgx.albert.stage.Stage;
+import dgx.albert.herobattle.constant.StageEnum;
+import dgx.albert.herobattle.service.Operation;
+import dgx.albert.herobattle.vo.Character;
+import dgx.albert.herobattle.utils.FileUtils;
 
 public class HeroBattle {
 	//print and write tool & initial parameter
@@ -14,13 +15,13 @@ public class HeroBattle {
 	public static final String suffixNamePath = "./resource/suffixName.txt";
 	final static int numOfGroup = 10;
 	//setting
-	public static FileWriter fw = IOmethod.createFile(processPath);
+	public static FileWriter fw = FileUtils.createFile(processPath);
 	
 	public static void main(String[] args) throws IOException {
 		//生成隊伍 n vs n
 		Character[] hero = Operation.initial(numOfGroup);
 		//set stage
-		Stage stageNow = Operation.stageSet();
+		StageEnum stageNow = Operation.stageSet();
 		Operation.stageImapct(stageNow, hero);
 		
 		int moveCount = 0;
@@ -39,7 +40,7 @@ public class HeroBattle {
 			moveCount++;
 		}
 		formatedStringTmp = String.format("----------回合結束---------\r\n");
-		IOmethod.printFile(HeroBattle.formatedStringTmp);
+		FileUtils.printFile(HeroBattle.formatedStringTmp);
 		//顯示結果及屬性
 		for(int i =0 ;i < hero.length;i++)
 		hero[i].showChar();

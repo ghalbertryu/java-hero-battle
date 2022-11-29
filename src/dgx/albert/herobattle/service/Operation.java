@@ -1,29 +1,30 @@
-package dgx.albert.herobattle;
+package dgx.albert.herobattle.service;
 
 import java.io.IOException;
 
-import dgx.albert.character.Character;
-import dgx.albert.chardark.CharDark;
-import dgx.albert.charlight.CharLight;
-import dgx.albert.io.IOmethod;
-import dgx.albert.stage.Stage;
+import dgx.albert.herobattle.HeroBattle;
+import dgx.albert.herobattle.vo.Character;
+import dgx.albert.herobattle.vo.CharDark;
+import dgx.albert.herobattle.vo.CharLight;
+import dgx.albert.herobattle.utils.FileUtils;
+import dgx.albert.herobattle.constant.StageEnum;
 
 public class Operation {
 	//初始化 隨機生成num vs num 隨機名字不重複的角色
 	public static Character[] initial(int num) throws IOException{
 		Character[] hero = new Character[num*2];
-		String [] prefixDark = IOmethod.fileToArray(HeroBattle.prefixDarkPath);
-		String [] prefixLight = IOmethod.fileToArray(HeroBattle.prefixLightPath);
-		String [] suffix = IOmethod.fileToArray(HeroBattle.suffixNamePath);
+		String [] prefixDark = FileUtils.fileToArray(HeroBattle.prefixDarkPath);
+		String [] prefixLight = FileUtils.fileToArray(HeroBattle.prefixLightPath);
+		String [] suffix = FileUtils.fileToArray(HeroBattle.suffixNamePath);
 
 		for(int i = 0, n = num; i<n; i++)
-			hero[i] = new CharLight(IOmethod.ranName(prefixLight, suffix));
+			hero[i] = new CharLight(FileUtils.ranName(prefixLight, suffix));
 		for(int i = num, n = num*2; i<n; i++)
-			hero[i] = new CharDark(IOmethod.ranName(prefixDark, suffix));
+			hero[i] = new CharDark(FileUtils.ranName(prefixDark, suffix));
 		return hero;
 	}
 	//Stage Impact
-	public static void stageImapct(Stage stage, Character[] hero){
+	public static void stageImapct(StageEnum stage, Character[] hero){
 		for(int i=hero.length/2, n=hero.length; i<n; i++){
 			CharDark dark = (CharDark)(hero[i]);
 			dark.stageImapct(stage);
@@ -31,11 +32,11 @@ public class Operation {
 		switch(stage){
 		case Day:
 			HeroBattle.formatedStringTmp = String.format("-----曙光乍現!! 黑暗的力量削弱了-----\r\n\r\n");
-			IOmethod.printFile(HeroBattle.formatedStringTmp);
+			FileUtils.printFile(HeroBattle.formatedStringTmp);
 			break;
 		case Night:
 			HeroBattle.formatedStringTmp = String.format("-----黑夜降臨!! 黑暗的力量增強了-----\r\n\r\n");
-			IOmethod.printFile(HeroBattle.formatedStringTmp);
+			FileUtils.printFile(HeroBattle.formatedStringTmp);
 			break;
 		}
 	}
@@ -103,7 +104,7 @@ public class Operation {
 			if(hero[i].getAlive())	return false;
 		}
 		HeroBattle.formatedStringTmp = String.format("Light陣營全滅...\r\n\r\n");
-		IOmethod.printFile(HeroBattle.formatedStringTmp);
+		FileUtils.printFile(HeroBattle.formatedStringTmp);
 		return true;
 	}
 	public static boolean checkDark(Character[] hero){
@@ -111,18 +112,18 @@ public class Operation {
 			if(hero[i].getAlive())	return false;
 		}
 		HeroBattle.formatedStringTmp = String.format("Dark陣營全滅...\r\n\r\n");
-		IOmethod.printFile(HeroBattle.formatedStringTmp);
+		FileUtils.printFile(HeroBattle.formatedStringTmp);
 		return true;
 	}
 	
-	public static Stage stageSet(){
+	public static StageEnum stageSet(){
 		double d2 = Math.random();
-		if(d2<0.5) return Stage.Day;
-		else return Stage.Night;
+		if(d2<0.5) return StageEnum.Day;
+		else return StageEnum.Night;
 	}
 	
-	public static Stage stageChange(Stage stage){
-		if(stage == Stage.Day) return Stage.Night;
-		else return Stage.Day;
+	public static StageEnum stageChange(StageEnum stage){
+		if(stage == StageEnum.Day) return StageEnum.Night;
+		else return StageEnum.Day;
 	}
 }

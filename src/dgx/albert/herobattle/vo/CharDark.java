@@ -1,9 +1,7 @@
-package dgx.albert.chardark;
-import dgx.albert.character.Character;
-import dgx.albert.charlight.CharLight;
+package dgx.albert.herobattle.vo;
 import dgx.albert.herobattle.HeroBattle;
-import dgx.albert.io.IOmethod;
-import dgx.albert.stage.Stage;
+import dgx.albert.herobattle.utils.FileUtils;
+import dgx.albert.herobattle.constant.StageEnum;
 
 public class CharDark extends Character{
 	//
@@ -32,20 +30,20 @@ public class CharDark extends Character{
 		if(!enemy.getAlive()) return;
 		
 		HeroBattle.formatedStringTmp = String.format("%s對%s施展了致死術", name, enemy.name);
-		IOmethod.printFile(HeroBattle.formatedStringTmp);
+		FileUtils.printFile(HeroBattle.formatedStringTmp);
 
 		double d10 = Math.random();
 		if(d10<0.25){
 			HeroBattle.formatedStringTmp = String.format("成功!%s血量剩下%s\r\n\r\n", enemy.name, enemy.getDeath());
-			IOmethod.printFile(HeroBattle.formatedStringTmp);
+			FileUtils.printFile(HeroBattle.formatedStringTmp);
 		}else{
 			HeroBattle.formatedStringTmp = String.format("不幸失敗了!\r\n\r\n");
-			IOmethod.printFile(HeroBattle.formatedStringTmp);
+			FileUtils.printFile(HeroBattle.formatedStringTmp);
 		}
 	}
 	
 	//stage impact
-	public void stageImapct(Stage stage){
+	public void stageImapct(StageEnum stage){
 		switch(stage){
 		case Day:
 			atkAdjust=(atkInitial == (int)(atkInitial * 0.9))? atkInitial-1:(int)(atkInitial * 0.9);
