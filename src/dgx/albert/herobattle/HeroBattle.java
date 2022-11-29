@@ -8,10 +8,10 @@ import dgx.albert.stage.Stage;
 public class HeroBattle {
 	//print and write tool & initial parameter
 	public static String formatedStringTmp =""; 
-	public static final String processPath = ".\\process.txt";
-	public static final String prefixDarkPath = ".\\prefixDark.txt";
-	public static final String prefixLightPath = ".\\prefixLight.txt";
-	public static final String suffixNamePath = ".\\suffixName.txt";
+	public static final String processPath = "./resource/process.txt";
+	public static final String prefixDarkPath = "./resource/prefixDark.txt";
+	public static final String prefixLightPath = "./resource/prefixLight.txt";
+	public static final String suffixNamePath = "./resource/suffixName.txt";
 	final static int numOfGroup = 10;
 	//setting
 	public static FileWriter fw = IOmethod.createFile(processPath);
