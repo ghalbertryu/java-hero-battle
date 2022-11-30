@@ -1,9 +1,9 @@
-package dgx.albert.herobattle.vo;
+package org.albertryu.herobattle.vo;
 
 import java.util.*;
 
-import dgx.albert.herobattle.HeroBattle;
-import dgx.albert.herobattle.utils.FileUtils;
+import org.albertryu.herobattle.HeroBattle;
+import org.albertryu.herobattle.utils.FileUtils;
 
 public class Character {
 	public static int charCount=0;

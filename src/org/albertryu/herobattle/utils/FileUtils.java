@@ -1,8 +1,8 @@
-package dgx.albert.herobattle.utils;
+package org.albertryu.herobattle.utils;
 
 import java.io.*;
-import dgx.albert.herobattle.vo.Character;
-import dgx.albert.herobattle.HeroBattle;
+import org.albertryu.herobattle.vo.Character;
+import org.albertryu.herobattle.HeroBattle;
 
 public class FileUtils {
 	//printFlie

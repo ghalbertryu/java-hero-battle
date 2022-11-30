@@ -1,13 +1,13 @@
-package dgx.albert.herobattle.service;
+package org.albertryu.herobattle.service;
 
 import java.io.IOException;
 
-import dgx.albert.herobattle.HeroBattle;
-import dgx.albert.herobattle.vo.Character;
-import dgx.albert.herobattle.vo.CharDark;
-import dgx.albert.herobattle.vo.CharLight;
-import dgx.albert.herobattle.utils.FileUtils;
-import dgx.albert.herobattle.constant.StageEnum;
+import org.albertryu.herobattle.HeroBattle;
+import org.albertryu.herobattle.vo.Character;
+import org.albertryu.herobattle.vo.CharDark;
+import org.albertryu.herobattle.vo.CharLight;
+import org.albertryu.herobattle.utils.FileUtils;
+import org.albertryu.herobattle.constant.StageEnum;
 
 public class Operation {
 	//初始化 隨機生成num vs num 隨機名字不重複的角色
