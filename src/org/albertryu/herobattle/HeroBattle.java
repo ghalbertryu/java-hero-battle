@@ -9,10 +9,10 @@ import org.albertryu.herobattle.utils.FileUtils;
 public class HeroBattle {
 	//print and write tool & initial parameter
 	public static String formatedStringTmp =""; 
-	public static final String processPath = "./resource/process.txt";
-	public static final String prefixDarkPath = "./resource/prefixDark.txt";
-	public static final String prefixLightPath = "./resource/prefixLight.txt";
-	public static final String suffixNamePath = "./resource/suffixName.txt";
+	public static final String processPath = "./resources/process.txt";
+	public static final String prefixDarkPath = "./resources/prefixDark.txt";
+	public static final String prefixLightPath = "./resources/prefixLight.txt";
+	public static final String suffixNamePath = "./resources/suffixName.txt";
 	final static int numOfGroup = 10;
 	//setting
 	public static FileWriter fw = FileUtils.createFile(processPath);
