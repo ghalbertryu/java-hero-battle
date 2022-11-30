@@ -1,10 +1,10 @@
-package dgx.albert.herobattle;
+package org.albertryu.herobattle;
 import java.io.*;
 
-import dgx.albert.herobattle.constant.StageEnum;
-import dgx.albert.herobattle.service.Operation;
-import dgx.albert.herobattle.vo.Character;
-import dgx.albert.herobattle.utils.FileUtils;
+import org.albertryu.herobattle.constant.StageEnum;
+import org.albertryu.herobattle.service.Operation;
+import org.albertryu.herobattle.vo.Character;
+import org.albertryu.herobattle.utils.FileUtils;
 
 public class HeroBattle {
 	//print and write tool & initial parameter

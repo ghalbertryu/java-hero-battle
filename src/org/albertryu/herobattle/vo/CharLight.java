@@ -1,6 +1,6 @@
-package dgx.albert.herobattle.vo;
-import dgx.albert.herobattle.HeroBattle;
-import dgx.albert.herobattle.utils.FileUtils;
+package org.albertryu.herobattle.vo;
+import org.albertryu.herobattle.HeroBattle;
+import org.albertryu.herobattle.utils.FileUtils;
 
 public class CharLight extends Character {
 	//

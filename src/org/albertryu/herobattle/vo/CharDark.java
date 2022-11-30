@@ -1,7 +1,7 @@
-package dgx.albert.herobattle.vo;
-import dgx.albert.herobattle.HeroBattle;
-import dgx.albert.herobattle.utils.FileUtils;
-import dgx.albert.herobattle.constant.StageEnum;
+package org.albertryu.herobattle.vo;
+import org.albertryu.herobattle.HeroBattle;
+import org.albertryu.herobattle.utils.FileUtils;
+import org.albertryu.herobattle.constant.StageEnum;
 
 public class CharDark extends Character{
 	//
